@@ -2,8 +2,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DevPdrovisky/DevPdrovisky/main/perfil-escuro.svg?v=mwjq803u">
-    <img alt="DevPdrovisky@github: Front-end, fundador da Vorkeza Digital" src="https://raw.githubusercontent.com/DevPdrovisky/DevPdrovisky/main/perfil-claro.svg?v=mwjq803u" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DevPdrovisky/DevPdrovisky/main/perfil-escuro.svg?v=mwjq8cen">
+    <img alt="DevPdrovisky@github: Front-end, fundador da Vorkeza Digital" src="https://raw.githubusercontent.com/DevPdrovisky/DevPdrovisky/main/perfil-claro.svg?v=mwjq8cen" width="100%">
   </picture>
 </p>
 
