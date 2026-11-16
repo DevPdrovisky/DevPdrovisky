@@ -59,7 +59,6 @@ const ficha = [
   linha('Uptime:', u.created_at ? tempoDesde(u.created_at) : '—'),
   linha('Host:', 'Vorkeza Digital'),
   linha('Kernel:', 'Front-end'),
-  linha('Shell:', 'Claude Code'),
   '.',
   linha('Languages.Programming:', 'HTML, CSS, JavaScript, TS'),
   linha('Languages.Web:', 'Next.js, Cloudflare Pages'),
@@ -128,8 +127,6 @@ fs.writeFileSync(new URL('../perfil-claro.svg', import.meta.url), svg('claro'));
 fs.writeFileSync(new URL('../perfil-escuro.svg', import.meta.url), svg('escuro'));
 
 const readme = `<!-- Gerado por scripts/gerar-readme.mjs. Edite o script, não este arquivo. -->
-<h3 align="center">Oi, eu sou o Pedro 👾</h3>
-<p align="center">Construo sites e micro SaaS que resolvem problema de pequeno negócio,<br>do código até o vídeo que traz o cliente.</p>
 
 <p align="center">
   <picture>
