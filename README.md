@@ -29,11 +29,11 @@
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠏⢏⠫⡉⣳⣽⣳⣻⡽⣽⣞   . Location: ....................................... Brasil
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⡑⠕⣌⡾⣯⢾⣺⣗⣯⢷⢯
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⡑⣵⢵⢷⢮⣏⡗⡷⡯⣟⣽   - GitHub Stats ───────────────────────────────────────────
-                                           . Repos: ................. 0 │ Stars: .................. 0
+                                           . Repos: ................. 2 │ Stars: .................. 0
                                            . Commits: ............... 0 │ Followers: .............. 1
 ```
 
-<p align="right"><sub>Atualizado em 16 de nov. de 2026, 17:25</sub></p>
+<p align="right"><sub>Atualizado em 16 de nov. de 2026, 17:29</sub></p>
 
 <p align="center">
   <a href="https://vorkeza.com.br"><img alt="vorkeza.com.br" src="https://img.shields.io/badge/vorkeza.com.br-7C3AED?style=for-the-badge"></a>
