@@ -126,12 +126,13 @@ ${linhasFicha}
 fs.writeFileSync(new URL('../perfil-claro.svg', import.meta.url), svg('claro'));
 fs.writeFileSync(new URL('../perfil-escuro.svg', import.meta.url), svg('escuro'));
 
+const versao = Date.now().toString(36);
 const readme = `<!-- Gerado por scripts/gerar-readme.mjs. Edite o script, não este arquivo. -->
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./perfil-escuro.svg">
-    <img alt="${esc(USUARIO)}@github: Front-end, fundador da Vorkeza Digital" src="./perfil-claro.svg" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="./perfil-escuro.svg?v=${versao}">
+    <img alt="${esc(USUARIO)}@github: Front-end, fundador da Vorkeza Digital" src="./perfil-claro.svg?v=${versao}" width="100%">
   </picture>
 </p>
 
