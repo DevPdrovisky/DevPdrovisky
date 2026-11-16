@@ -1,6 +1,4 @@
 <!-- Gerado por scripts/gerar-readme.mjs. Edite o script, não este arquivo. -->
-<h3 align="center">Oi, eu sou o Pedro 👾</h3>
-<p align="center">Construo sites e micro SaaS que resolvem problema de pequeno negócio,<br>do código até o vídeo que traz o cliente.</p>
 
 <p align="center">
   <picture>
