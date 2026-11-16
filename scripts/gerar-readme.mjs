@@ -50,7 +50,7 @@ const titulo = (t) => `- ${t} ${'─'.repeat(Math.max(LARGURA - t.length - 3, 1)
 const dupla = (r1, v1, r2, v2) => {
   const a = `. ${r1} ${'.'.repeat(Math.max(24 - r1.length - v1.length, 1))} ${v1}`;
   const b = `${r2} ${'.'.repeat(Math.max(LARGURA - a.length - 3 - r2.length - v2.length - 2, 1))} ${v2}`;
-  return `${a} │ ${b}`;
+  return `${a} | ${b}`;
 };
 
 const ficha = [
@@ -84,30 +84,59 @@ const ficha = [
   dupla('Commits:', n(commits), 'Followers:', n(u.followers)),
 ];
 
-// ---------- junta as duas colunas ----------
-const larguraArte = Math.max(...arte.map((l) => [...l].length)) + 3;
-const total = Math.max(arte.length, ficha.length);
-const topoArte = Math.floor((total - arte.length) / 2);
-const linhas = [];
-for (let i = 0; i < total; i++) {
-  const esq = arte[i - topoArte] ?? '';
-  const dir = ficha[i] ?? '';
-  linhas.push((esq + ' '.repeat(larguraArte - [...esq].length) + dir).trimEnd());
-}
+// ---------- monta a imagem (SVG) nas versões clara e escura ----------
+const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const colorir = (t) => esc(t)
+  .replace(/^(- )([^─]+?)( ─+)$/, '<tspan class="d">$1</tspan><tspan class="k">$2</tspan><tspan class="d">$3</tspan>')
+  .replace(/^(\S+@github)( ─+)$/, '<tspan class="k">$1</tspan><tspan class="d">$2</tspan>')
+  .replace(/([A-Za-z.]+:)(?= )/g, '<tspan class="k">$1</tspan>')
+  .replace(/( \.{2,} )/g, '<tspan class="d">$1</tspan>')
+  .replace(/^\.(?=\s|$)/, '<tspan class="d">.</tspan>');
+
+const CHAR = 8.4, PASSO = 18, FONTE = 14;
+const ARTE_L = 380, ARTE_A = Math.round(ARTE_L * (arte.length * 4) / ([...arte[0]].length * 2));
+const passoArte = ARTE_A / arte.length;
+const fichaA = ficha.length * PASSO;
+const altura = Math.max(ARTE_A, fichaA) + 70;
+const xFicha = 20 + ARTE_L + 30;
+const largura = xFicha + Math.max(...ficha.map((l) => [...l].length)) * CHAR + 24;
+const yArte = 24 + (altura - 70 - ARTE_A) / 2;
+const yFicha = 24 + (altura - 70 - fichaA) / 2;
 
 const dataBR = new Date().toLocaleString('pt-BR', {
   timeZone: 'America/Sao_Paulo', dateStyle: 'medium', timeStyle: 'short',
 });
 
+function svg(tema) {
+  const c = tema === 'escuro'
+    ? { fundo: '#161b22', borda: '#30363d', txt: '#c9d1d9', k: '#b794f6', d: '#6e7681', arte: '#c9d1d9' }
+    : { fundo: '#f6f8fa', borda: '#d0d7de', txt: '#24292f', k: '#7c3aed', d: '#8c959f', arte: '#24292f' };
+  const linhasArte = arte.map((l, i) =>
+    `<text x="20" y="${(yArte + (i + 1) * passoArte).toFixed(1)}" textLength="${ARTE_L}" lengthAdjust="spacingAndGlyphs" class="a">${esc(l)}</text>`).join('\n');
+  const linhasFicha = ficha.map((l, i) => l ? `<text x="${xFicha}" y="${yFicha + (i + 1) * PASSO - 4}"${[...l].length > 3 ? ` textLength="${([...l].length * CHAR).toFixed(1)}"` : ''}>${colorir(l)}</text>` : '').join('\n');
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${Math.round(largura)}" height="${altura}" viewBox="0 0 ${Math.round(largura)} ${altura}" font-family="ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="${FONTE}px">
+<style>text{fill:${c.txt};white-space:pre}.k{fill:${c.k}}.d{fill:${c.d}}.a{fill:${c.arte};font-size:${(passoArte * 0.95).toFixed(1)}px}.u{fill:${c.d};font-size:11px}</style>
+<rect x="0.5" y="0.5" width="${Math.round(largura) - 1}" height="${altura - 1}" rx="10" fill="${c.fundo}" stroke="${c.borda}"/>
+${linhasArte}
+${linhasFicha}
+<text x="${Math.round(largura) - 20}" y="${altura - 18}" text-anchor="end" class="u">Atualizado em ${esc(dataBR)}</text>
+</svg>
+`;
+}
+
+fs.writeFileSync(new URL('../perfil-claro.svg', import.meta.url), svg('claro'));
+fs.writeFileSync(new URL('../perfil-escuro.svg', import.meta.url), svg('escuro'));
+
 const readme = `<!-- Gerado por scripts/gerar-readme.mjs. Edite o script, não este arquivo. -->
 <h3 align="center">Oi, eu sou o Pedro 👾</h3>
 <p align="center">Construo sites e micro SaaS que resolvem problema de pequeno negócio,<br>do código até o vídeo que traz o cliente.</p>
 
-\`\`\`text
-${linhas.join('\n')}
-\`\`\`
-
-<p align="right"><sub>Atualizado em ${dataBR}</sub></p>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./perfil-escuro.svg">
+    <img alt="${esc(USUARIO)}@github: Front-end, fundador da Vorkeza Digital" src="./perfil-claro.svg" width="100%">
+  </picture>
+</p>
 
 <p align="center">
   <a href="https://vorkeza.com.br"><img alt="vorkeza.com.br" src="https://img.shields.io/badge/vorkeza.com.br-7C3AED?style=for-the-badge"></a>
@@ -115,4 +144,4 @@ ${linhas.join('\n')}
 `;
 
 fs.writeFileSync(new URL('../README.md', import.meta.url), readme);
-console.log(readme);
+console.log('ok', Math.round(largura), altura);
