@@ -6,29 +6,8 @@ import fs from 'node:fs';
 const USUARIO = 'DevPdrovisky';
 const LARGURA = 58; // largura da ficha da direita
 
-// ---------- "V" da Vorkeza em letrinhas ----------
-const arte = String.raw`
- ██████╗          ██████╗
- ╚█████║          ║█████╝
-  ╚████║          ║████╝
-   ████║          ║████
-   ╚███║          ║███╝
-    ███║          ║███
-    ╚██║          ║██╝
-     ██║          ║██
-     ╚█║          ║█╝
-      █║          ║█
-      ╚█╗        ╔█╝
-       ╚█╗      ╔█╝
-        ╚█╗    ╔█╝
-         ╚█╗  ╔█╝
-          ╚█╗╔█╝
-           ╚██╝
-            ╚╝
-
-     V O R K E Z A
-      D I G I T A L
-`.split('\n').slice(1, -1);
+// ---------- arte da esquerda (arte.txt, em pontinhos) ----------
+const arte = fs.readFileSync(new URL('../arte.txt', import.meta.url), 'utf8').replace(/\r/g, '').split('\n').filter((l, i, t) => i < t.length - 1 || l);
 
 // ---------- busca os números de verdade no GitHub ----------
 async function api(caminho) {
