@@ -55,28 +55,28 @@ const dupla = (r1, v1, r2, v2) => {
 
 const ficha = [
   `${USUARIO}@github ${'─'.repeat(LARGURA - USUARIO.length - 8)}`,
-  linha('OS:', 'Windows'),
-  linha('Uptime:', u.created_at ? tempoDesde(u.created_at) : '—'),
   linha('Host:', 'Vorkeza Digital'),
-  linha('Kernel:', 'Front-end'),
+  linha('Kernel:', 'Fundador da Vorkeza Digital'),
+  linha('Uptime:', u.created_at ? tempoDesde(u.created_at) : '—'),
+  linha('Para:', 'Negócios locais, preço fechado'),
   '.',
-  linha('Languages.Programming:', 'HTML, CSS, JavaScript, TS'),
-  linha('Languages.Web:', 'Next.js, Cloudflare Pages'),
-  linha('Languages.Real:', 'Português'),
+  linha('Vorkeza.Sites:', 'Site Express, Site Profissional'),
+  linha('Vorkeza.Delivery:', 'Cardápio Delivery, Delivery Pro'),
+  linha('Vorkeza.Apps:', 'Corte Certo (açougue)'),
+  linha('', 'Vestra (loja de roupa)'),
+  linha('Vorkeza.Marcas:', 'Vitrine Motor, Vitrine Imóvel'),
+  linha('', 'Bem no Mapa, Boca a Boca'),
+  '.',
+  linha('Stack.Web:', 'HTML, CSS, JavaScript, TS'),
+  linha('Stack.Deploy:', 'Next.js, Cloudflare Pages'),
   linha('Skills.Extra:', 'Design, Vídeo, Marketing'),
   '.',
-  linha('Projects.Agency:', 'Vorkeza Digital'),
-  linha('Projects.Brands:', 'Vitrine Motor, Vitrine Imóvel'),
-  linha('', 'Bem no Mapa, Boca a Boca'),
-  linha('Projects.SaaS:', 'Fornada'),
-  linha('Projects.WIP:', 'Inventário Tech'),
-  '.',
-  linha('Hobbies.Offline:', 'Games, animes, séries'),
-  linha('Hobbies.Audio:', 'Música o dia inteiro'),
+  linha('Hobbies:', 'Games, animes, música'),
   '',
-  titulo('Contact'),
-  linha('Website:', 'vorkeza.com.br'),
-  linha('Location:', 'Brasil'),
+  titulo('Contato'),
+  linha('Site:', 'vorkeza.com.br'),
+  linha('Instagram:', '@vorkeza'),
+  linha('Local:', 'Artur Nogueira, SP'),
   '',
   titulo('GitHub Stats'),
   dupla('Repos:', n(u.public_repos), 'Stars:', n(estrelas)),
@@ -129,15 +129,27 @@ fs.writeFileSync(new URL('../perfil-escuro.svg', import.meta.url), svg('escuro')
 const versao = Date.now().toString(36);
 const readme = `<!-- Gerado por scripts/gerar-readme.mjs. Edite o script, não este arquivo. -->
 
+<p align="center"><b>Fundador da <a href="https://vorkeza.com.br">Vorkeza Digital</a></b>: sites, cardápios digitais e aplicativos para negócios locais, com preço fechado.</p>
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DevPdrovisky/DevPdrovisky/main/perfil-escuro.svg?v=${versao}">
-    <img alt="${esc(USUARIO)}@github: Front-end, fundador da Vorkeza Digital" src="https://raw.githubusercontent.com/DevPdrovisky/DevPdrovisky/main/perfil-claro.svg?v=${versao}" width="100%">
+    <img alt="${esc(USUARIO)}@github: fundador da Vorkeza Digital, sites, cardápios digitais e aplicativos para negócios locais" src="https://raw.githubusercontent.com/DevPdrovisky/DevPdrovisky/main/perfil-claro.svg?v=${versao}" width="100%">
   </picture>
 </p>
 
+## Sobre a Vorkeza
+
+A Vorkeza Digital faz a presença on-line de negócios locais, com preço fechado e prévia grátis antes de pagar.
+
+- **Sites:** Site Express e Site Profissional
+- **Cardápio e pedidos:** Cardápio Delivery e Delivery Pro
+- **Aplicativos:** Corte Certo (para açougue) e Vestra (para loja de roupa)
+- **Marcas do grupo:** Vitrine Motor (revendas de carro e moto), Vitrine Imóvel (corretores e imobiliárias), Bem no Mapa (perfil da empresa no mapa) e Boca a Boca (plaquinha com QR para avaliações)
+
 <p align="center">
   <a href="https://vorkeza.com.br"><img alt="vorkeza.com.br" src="https://img.shields.io/badge/vorkeza.com.br-7C3AED?style=for-the-badge"></a>
+  <a href="https://instagram.com/vorkeza"><img alt="Instagram @vorkeza" src="https://img.shields.io/badge/@vorkeza-7C3AED?style=for-the-badge"></a>
 </p>
 `;
 
