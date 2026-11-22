@@ -4,8 +4,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DevPdrovisky/DevPdrovisky/main/perfil-escuro.svg?v=mws9jrr9">
-    <img alt="DevPdrovisky@github: fundador da Vorkeza Digital, sites, cardápios digitais e aplicativos para negócios locais" src="https://raw.githubusercontent.com/DevPdrovisky/DevPdrovisky/main/perfil-claro.svg?v=mws9jrr9" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DevPdrovisky/DevPdrovisky/main/perfil-escuro.svg?v=mws9lx5x">
+    <img alt="DevPdrovisky@github: fundador da Vorkeza Digital, sites, cardápios digitais e aplicativos para negócios locais" src="https://raw.githubusercontent.com/DevPdrovisky/DevPdrovisky/main/perfil-claro.svg?v=mws9lx5x" width="100%">
   </picture>
 </p>
 
